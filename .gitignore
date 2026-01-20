@@ -1,0 +1,23 @@
+/node_modules
+/dist
+/dist-ssr
+/.vite
+- .turbo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# Env / credenciais (se você vier a usar)
+.env
+.env.*
+
