@@ -56,4 +56,4 @@ jobs:
             docker pull $IMAGE
 
             echo "Rolling update (zero downtime)"
-            docker compose -f /root/traefik/app.yml up -d --remove-orphans
+            docker compose -p helios -f /root/traefik/app.yml up -d --remove-orphans
