@@ -56,4 +56,4 @@ jobs:
             docker pull $IMAGE
 
             echo "Rolling update (zero downtime)"
-            docker stack deploy -c /root/traefik/app.yml app
+            docker-compose -f /root/traefik/app.yml up -d
