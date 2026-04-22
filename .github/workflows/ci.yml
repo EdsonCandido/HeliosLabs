@@ -47,7 +47,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            IMAGE=ghcr.io/edsoncandido/helioslabs:${{ github.sha }}
+            export IMAGE=ghcr.io/edsoncandido/helioslabs:${{ github.sha }}
 
             echo "Login GHCR"
             echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u edsoncandido --password-stdin
@@ -56,9 +56,4 @@ jobs:
             docker pull $IMAGE
 
             echo "Rolling update (zero downtime)"
-            docker service update \
-              --image $IMAGE \
-              --update-parallelism 1 \
-              --update-delay 10s \
-              --update-order start-first \
-              app_app
+            docker stack deploy -c app.yml app
